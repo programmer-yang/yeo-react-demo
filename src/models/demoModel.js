@@ -2,7 +2,6 @@ import { observable, action } from 'mobx';
 import { fetch } from '../services/demoApi';
 
 class demoModel {
-  @observable name = 'demo';
   @observable
   todoList = [{ text: '测试任务', complete: false, id: Date.now() }];
 
