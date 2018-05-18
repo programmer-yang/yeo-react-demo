@@ -1,0 +1,56 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px 0 50px;
+  // height: 50px;
+  // line-height: 50px;
+  // background-color: #4097c7;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  .left {
+    .logo {
+      width: 120px;
+      height: 31px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 16px 24px 16px 0;
+    }
+  }
+  .right {
+    .item {
+      display: inline-block;
+      height: 100%;
+      padding: 0 12px;
+      display: inline-block;
+      cursor: pointer;
+      i {
+        color: #fff;
+        font-size: 18px;
+      }
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+    .userBox {
+      padding: 0 12px;
+      height: 100%;
+      display: inline-block;
+      cursor: pointer;
+      .img {
+        margin-right: 0.5rem;
+      }
+      .name {
+        color: #fff;
+      }
+    }
+  }
+}
+.menu {
+  :global {
+    .ant-dropdown-menu-item {
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

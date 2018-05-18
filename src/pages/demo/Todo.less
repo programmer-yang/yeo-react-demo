@@ -1,0 +1,23 @@
+@import '../../vars.less';
+
+.root {
+  width: 50%;
+  .input {
+  }
+  .list {
+    margin-top: 8px;
+    :global {
+      .ant-list-item:hover {
+        background-color: #5e97979d;
+        color: #fff;
+      }
+    }
+    .active {
+      background-color: #5e9797;
+      color: #fff;
+      &:hover {
+        background-color: #5e9797;
+      }
+    }
+  }
+}
