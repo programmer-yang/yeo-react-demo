@@ -4,7 +4,7 @@ import styles from './TopHeader.less';
 
 const { Header } = Layout;
 
-const TopHeader = () => {
+const TopHeader = ({ collapsed, onCollapse }) => {
   const onMenuClick = () => {
     // ...
   };
@@ -18,7 +18,12 @@ const TopHeader = () => {
   return (
     <Header className={styles.root}>
       <div className={styles.left}>
-        <div className={styles.logo}>{/* ... */}</div>
+        {/* <div className={styles.logo}>...</div> */}
+        <Icon
+          className={styles.trigger}
+          type={collapsed ? 'menu-unfold' : 'menu-fold'}
+          onClick={onCollapse}
+        />
       </div>
       <div className={styles.right}>
         <div className={styles.item}>
