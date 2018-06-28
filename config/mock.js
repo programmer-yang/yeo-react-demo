@@ -6,8 +6,10 @@
  * 目前不支持热更新
  */
 const config = require('../.mock.data.js');
+const bodyParser = require('body-parser');
 
 module.exports = function(app) {
+  app.use(bodyParser.json());
   Object.keys(config).forEach(key => {
     const keyParsed = parseKey(key);
     app[keyParsed.method](

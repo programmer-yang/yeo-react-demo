@@ -37,13 +37,12 @@ README.md
 
 ## TODO
 
-* [x] 基础脚手架
-* [x] eslint
-* [x] 基础结构
-* [x] mobx 支持
-* [x] mobx 基础使用
-* [x] fetch
-* [x] mobx 异步 demo
-* [x] mock
-* [x] chart 支持
-* [ ] 异常统一处理
+- [x] 基础脚手架
+- [x] eslint
+- [x] 基础结构
+- [x] mobx 支持
+- [x] mobx 基础使用
+- [x] fetch
+- [x] mobx 异步 demo
+- [x] mock
+- [x] 异常统一处理

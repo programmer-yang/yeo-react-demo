@@ -1,5 +1,6 @@
 import { observable, action } from 'mobx';
 import { fetch } from '../services/demoApi';
+import { EWOULDBLOCK } from 'constants';
 
 class demoModel {
   @observable
@@ -38,13 +39,17 @@ class demoModel {
   };
 
   // 这是一个异步请求
-  fetchData = () => {
+  fetchData = type => {
     this.changeFetchStatus(true);
     this.changeFetchLog('开始请求后台服务');
-    fetch().then(resData => {
+    fetch({ type }).then(resData => {
       this.changeFetchStatus(false);
-      this.changeFetchLog('请求成功');
-      this.changeFetchLog(`这是后端的返回：${resData.message}`);
+      if (resData.errCode === '0') {
+        this.changeFetchLog('请求成功');
+        this.changeFetchLog(`这是后端的返回：${resData.data}`);
+      } else {
+        this.changeFetchLog('请求失败');
+      }
     });
   };
 }
