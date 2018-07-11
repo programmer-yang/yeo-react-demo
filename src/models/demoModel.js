@@ -1,6 +1,5 @@
 import { observable, action } from 'mobx';
 import { fetch } from '../services/demoApi';
-import { EWOULDBLOCK } from 'constants';
 
 class demoModel {
   @observable
