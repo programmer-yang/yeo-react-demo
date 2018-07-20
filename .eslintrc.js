@@ -24,6 +24,7 @@ module.exports = {
     sessionStorage: true,
     setTimeout: true,
     process: true,
-    console: true
+    console: true,
+    require: true
   }
 };

@@ -9,12 +9,15 @@ class Todo extends Component {
   state = {
     text: ''
   };
-  localOnEnter = e => {
-    this.props.addTodo(e.target.value);
+  localOnEnter = () => {
+    this.props.dispatch({ type: 'demo/addTodo', payload: this.state.text });
     this.setState({ text: '' });
   };
+  activeTodo = id => {
+    this.props.dispatch({ type: 'demo/activeTodo', payload: id });
+  };
   render() {
-    const { todoList, style, activeTodo } = this.props;
+    const { todoList, style } = this.props;
     return (
       <div className={styles.root} style={style}>
         <div className={styles.input}>
@@ -30,7 +33,7 @@ class Todo extends Component {
               <Item
                 key={item.id}
                 className={cn({ [styles.active]: item.complete })}
-                onClick={activeTodo.bind(this, item.id)}
+                onClick={this.activeTodo.bind(this, item.id)}
               >
                 {item.text}
               </Item>

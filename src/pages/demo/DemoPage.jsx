@@ -1,43 +1,34 @@
 import React, { Component } from 'react';
-import { inject, observer } from 'mobx-react';
+import { connect } from 'dva';
 import styles from './DemoPage.less';
 
-import Demo from './Demo';
-import Todo from './Todo';
-import Async from './Async';
+import Demo from './components/Demo';
+import Todo from './components/Todo';
+import Async from './components/Async';
 
-@inject(({ stores }) => ({ demoModel: stores.demoModel }))
-@observer
+@connect(({ demo }) => ({ demoData: demo }))
 class DemoPage extends Component {
+  componentWillUnmount() {
+    this.props.dispatch({ type: 'demo/clearData' });
+  }
   render() {
-    const {
-      todoList,
-      addTodo,
-      activeTodo,
-      fetchData,
-      hasFetch,
-      fetchLog
-    } = this.props.demoModel;
+    const { dispatch, demoData } = this.props;
     return (
       <div className={styles.root}>
         <div className={styles.demo}>
           <Demo
-            title="Mobx基础使用"
-            info="注意inject observer 解构等小技巧的应用"
+            title="redux基础使用"
+            info="本项目中的redux是使用的一个封装库-dva，简化了传统redux使用过于复杂的问题"
           >
-            <Todo
-              todoList={todoList}
-              addTodo={addTodo}
-              activeTodo={activeTodo}
-            />
+            <Todo todoList={demoData.todoList} dispatch={dispatch} />
           </Demo>
         </div>
         <div className={styles.demo}>
           <Demo title="Mobx 异步">
             <Async
-              fetchData={fetchData}
-              hasFetch={hasFetch}
-              fetchLog={fetchLog}
+              dispatch={dispatch}
+              hasFetch={demoData.hasFetch}
+              fetchLog={demoData.fetchLog}
             />
           </Demo>
         </div>

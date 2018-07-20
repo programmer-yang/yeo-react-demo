@@ -3,6 +3,7 @@ import { Menu, Icon, Layout } from 'antd';
 import styles from './BaseMenu.less';
 import { Link } from 'react-router-dom';
 
+// sider 有一个双次render的bug，是框架自身问题，如果有强制要求，可以考虑替换
 const { Sider } = Layout;
 
 const SubMenu = Menu.SubMenu;

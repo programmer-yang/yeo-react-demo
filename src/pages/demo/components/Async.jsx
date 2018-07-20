@@ -2,7 +2,18 @@ import React from 'react';
 import { Button, Spin } from 'antd';
 import styles from './Async.less';
 
-const Async = ({ fetchData, hasFetch, fetchLog }) => {
+const Async = ({ dispatch, hasFetch, fetchLog }) => {
+  const fetchData = type => {
+    dispatch({ type: 'demo/getData', payload: type });
+    // .then(res => {
+    //   console.log('------');
+    //   console.log(res);
+    //   console.log('------');
+    // })
+    // .catch(e => {
+    //   console.log('error', e);
+    // });
+  };
   return (
     <div className={styles.root}>
       <div className={styles.action}>

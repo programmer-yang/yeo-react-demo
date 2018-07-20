@@ -6,6 +6,9 @@
 import fetch from 'isomorphic-fetch';
 import { notification } from 'antd';
 import { stringify } from 'query-string';
+import { routerRedux } from 'dva/router';
+
+import sotre from '../index';
 
 const codeMessage = {
   200: '服务器成功返回请求的数据。',
@@ -41,8 +44,8 @@ function checkStatus(response) {
   });
 
   const error = new Error(response.statusText);
-  error.name = response.status;
-  error.response = response;
+  error.errCode = response.errCode;
+  error.errortext = errortext;
   throw error;
 }
 
@@ -64,8 +67,8 @@ function checkCode(response) {
   });
 
   const error = new Error(response.errCode);
-  error.name = response.errCode;
-  error.response = errortext;
+  error.errCode = response.errCode;
+  error.errortext = errortext;
   throw error;
 }
 
@@ -99,17 +102,18 @@ export default function request(url, options) {
     .then(parseJSON)
     .then(checkCode)
     .catch(err => {
-      const status = err.name;
+      const status = err.errCode;
+      const { dispatch } = sotre;
       if (status <= 504 && status >= 500) {
-        window._history.push('/exception/500');
+        dispatch(routerRedux.push('/exception/500'));
       }
       if (status >= 404 && status < 422) {
-        window._history.push('/exception/404');
+        dispatch(routerRedux.push('/exception/404'));
       }
       if (status === '-1') {
-        window._history.push(`/exception/500?msg=${err.response}`);
+        dispatch(routerRedux.push(`/exception/500?msg=${err.response}`));
       }
-      return { errCode: err.name };
+      return { ...err, message: JSON.stringify({ url, newOptions }) };
     });
 }
 
