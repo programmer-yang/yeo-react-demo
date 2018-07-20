@@ -7,7 +7,7 @@ public                  // 公共文件 可以放一些第三方字体 样式库
 scripts                 // 启动脚本
 src
   |-- asset             // 静态资源
-  |-- components        // 组件
+  |-- components        // 公共组件目录 当业务需要拆分组件的时候，可以在对应的业务文件夹下单独创建一个components文件夹
   |-- models            // 公共model存放位置
     |-- index.js        // model 入口文件，所有的业务model都需要在这里登记才可以使用
   |-- pages             // 容器组件
