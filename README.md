@@ -37,6 +37,7 @@ README.md
 
 ```json
 {
+  "editor.tabSize": 2,
   "editor.formatOnSave": true
 }
 ```
