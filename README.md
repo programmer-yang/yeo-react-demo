@@ -9,7 +9,7 @@ src
   |-- asset             // 静态资源
   |-- components        // 组件
   |-- models            // 公共model存放位置
-    |-- index.js        // model 入口文件，所有的业务model都需要在这里登记太可以使用
+    |-- index.js        // model 入口文件，所有的业务model都需要在这里登记才可以使用
   |-- pages             // 容器组件
     |-- demo            // 业务容器
       |-- DemoPage.jsx  // 业务入口 我们约定入口文件后都带一个“Page”字样
