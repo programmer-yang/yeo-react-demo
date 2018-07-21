@@ -21,8 +21,6 @@ for (let model in models) {
 
 app.router(require('./router').default);
 
-console.log('...');
-
 app.start('#root');
 
 export default app._store; // eslint-disable-line
