@@ -59,7 +59,7 @@
     "build": "node scripts/build.js -t prod",
     "test": "node scripts/test.js --env=jsdom",
     "lint": "eslint --ext .js,.jsx src",
-    "prepush": "npm run lint"
+    "precommit": "npm run lint"
   },
   "babel": {
     "plugins": [

@@ -22,6 +22,7 @@ for (let model in models) {
 app.router(require('./router').default);
 
 console.log('.....');
+console.log('.....');
 
 app.start('#root');
 
