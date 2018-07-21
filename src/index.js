@@ -25,6 +25,7 @@ console.log('.....');
 console.log('.....');
 console.log('.....');
 console.log('.....');
+console.log('.....');
 
 app.start('#root');
 
