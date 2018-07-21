@@ -23,6 +23,7 @@ app.router(require('./router').default);
 
 console.log('.....');
 console.log('.....');
+console.log('.....');
 
 app.start('#root');
 
