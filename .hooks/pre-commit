@@ -2,7 +2,7 @@
 
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".jsx\{0,1\}$")
 
-ESLINT="$(git rev-parse --show-toplevel)/node_modules/.bin/eslint --ext .js,.jsx src"
+ESLINT="$(git rev-parse --show-toplevel)/node_modules/.bin/eslint"
 
 if [[ "$STAGED_FILES" = "" ]]; then
   exit 0
@@ -24,17 +24,30 @@ if [[ ! -x "$ESLINT" ]]; then
   exit 1
 fi
 
-for FILE in $STAGED_FILES
-do
-  eslint "$FILE"
+# for FILE in $STAGED_FILES
+# do
+#   # eslint "$FILE"  --ext .js,.jsx src
 
-  if [[ "$?" == 0 ]]; then
-    echo "\t\033[32mESLint Passed: $FILE\033[0m"
-  else
-    echo "\t\033[41mESLint Failed: $FILE\033[0m"
-    PASS=false
-  fi
-done
+#   # echo $FILE
+#   # echo "-----"
+#   npm run lint
+
+#   if [[ "$?" == 0 ]]; then
+#     echo "\t\033[32mESLint Passed: $FILE\033[0m"
+#     echo "——————————"
+#   else
+#     echo "\t\033[41mESLint Failed: $FILE\033[0m"
+#     PASS=false
+#   fi
+# done
+
+npm run lint
+if [[ "$?" == 0 ]]; then
+  echo "OK"
+else
+  echo "Error"
+  PASS=false
+fi
 
 echo "\n代码检查完毕!\n"
 

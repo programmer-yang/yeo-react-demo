@@ -1,9 +1,9 @@
-import dva from 'dva';
-import './index.less';
-import createBrowserHistory from 'history/createBrowserHistory';
+import dva from "dva";
+import "./index.less";
+import createBrowserHistory from "history/createBrowserHistory";
 
-import models from './models';
-import Router from './router';
+import models from "./models";
+import Router from "./router";
 
 const history = createBrowserHistory();
 
@@ -22,6 +22,6 @@ Object.keys(models).forEach(model => {
 
 app.router(Router);
 
-app.start('#root');
+app.start("#root");
 
 export default app._store; // eslint-disable-line
