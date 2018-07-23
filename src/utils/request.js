@@ -117,24 +117,19 @@ export default function request(url, options) {
     });
 }
 
-export const get = (url, data) => {
-  return request(trimURL(`${url}?${stringify(data)}`), {
-    method: 'GET'
-  });
-};
-export const post = (url, data) => {
-  return request(trimURL(url), {
-    method: 'POST',
-    body: JSON.stringify(data)
-  });
-};
-
 /**
  * 统一处理URL 添加前缀等统一操作
  * @param {*} url 原URL
  * 可以考虑把固定部分抽离成配置文件，根据需求来
  */
-const trimURL = url => {
-  // return `/itserviceplatform${url}`;
-  return `/api${url}`;
-};
+const trimURL = url => `/api${url}`;
+
+export const get = (url, data) =>
+  request(trimURL(`${url}?${stringify(data)}`), {
+    method: 'GET'
+  });
+export const post = (url, data) =>
+  request(trimURL(url), {
+    method: 'POST',
+    body: JSON.stringify(data)
+  });

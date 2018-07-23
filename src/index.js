@@ -3,6 +3,7 @@ import './index.less';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import models from './models';
+import Router from './router';
 
 const history = createBrowserHistory();
 
@@ -15,11 +16,11 @@ const app = dva({
 
 // app.use({});
 
-for (let model in models) {
+Object.keys(models).forEach(model => {
   app.model(models[model]);
-}
+});
 
-app.router(require('./router').default);
+app.router(Router);
 
 app.start('#root');
 

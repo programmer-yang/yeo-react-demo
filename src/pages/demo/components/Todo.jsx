@@ -3,19 +3,22 @@ import { List, Input } from 'antd';
 import cn from 'classnames';
 import styles from './Todo.less';
 
-const Item = List.Item;
+const { Item } = List;
 
 class Todo extends Component {
   state = {
     text: ''
   };
+
   localOnEnter = () => {
     this.props.dispatch({ type: 'demo/addTodo', payload: this.state.text });
     this.setState({ text: '' });
   };
+
   activeTodo = id => {
     this.props.dispatch({ type: 'demo/activeTodo', payload: id });
   };
+
   render() {
     const { todoList, style } = this.props;
     return (

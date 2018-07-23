@@ -15,7 +15,6 @@ process.on('unhandledRejection', err => {
 require('../config/env');
 
 const fs = require('fs');
-const shell = require('shelljs');
 const chalk = require('chalk');
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
@@ -34,16 +33,6 @@ const createDevServerConfig = require('../config/webpackDevServer.config');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;
-
-// check pre-commit file exist
-
-if (!fs.existsSync('.git/hooks/pre-commit')) {
-  // fs.createReadStream('.hooks/pre-commit').pipe(
-  //   fs.createWriteStream(preCommitPath)
-  // );
-
-  shell.exec('cp .hooks/pre-commit .git/hooks/');
-}
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {

@@ -1,4 +1,6 @@
-import { getData } from './demoApi';
+import apis from './demoApi';
+
+const { getData } = apis;
 
 const initData = {
   todoList: [{ text: '测试任务', complete: false, id: Date.now() }],

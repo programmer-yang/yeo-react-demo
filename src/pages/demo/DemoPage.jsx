@@ -11,6 +11,7 @@ class DemoPage extends Component {
   componentWillUnmount() {
     this.props.dispatch({ type: 'demo/clearData' });
   }
+
   render() {
     const { dispatch, demoData } = this.props;
     return (

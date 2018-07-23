@@ -15,9 +15,11 @@ class BaseLayout extends Component {
   state = {
     collapsed: false
   };
+
   onCollapse = () => {
     this.setState({ collapsed: !this.state.collapsed });
   };
+
   render() {
     const { children } = this.props;
     const { collapsed } = this.state;

@@ -1,11 +1,11 @@
-import React from 'react';
-import config from './typeConfig';
-import { Button } from 'antd';
-import { Link } from 'react-router-dom';
-import styles from './Exception.less';
+import React from "react";
+import { Button } from "antd";
+import { Link } from "react-router-dom";
+import config from "./typeConfig";
+import styles from "./Exception.less";
 
 const Exception = ({ type, title, desc, img }) => {
-  const pageType = type in config ? type : '404';
+  const pageType = type in config ? type : "404";
   return (
     <div className={styles.root}>
       <div className={styles.img}>
