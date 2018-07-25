@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'dva';
-import styles from './DemoPage.less';
+import React, { Component } from "react";
+import { connect } from "dva";
+import styles from "./DemoPage.less";
 
-import Demo from './components/Demo';
-import Todo from './components/Todo';
-import Async from './components/Async';
+import Demo from "./components/Demo";
+import Todo from "./components/Todo";
+import Async from "./components/Async";
 
 @connect(({ demo }) => ({ demoData: demo }))
 class DemoPage extends Component {
   componentWillUnmount() {
-    this.props.dispatch({ type: 'demo/clearData' });
+    this.props.dispatch({ type: "demo/clearData" });
   }
 
   render() {

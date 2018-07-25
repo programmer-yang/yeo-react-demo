@@ -9,7 +9,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "airbnb-base/legacy",
+    "airbnb-base",
     "prettier",
     "prettier/react"
   ],
@@ -20,8 +20,7 @@ module.exports = {
     "no-console": hasDev ? 1 : 2,
     "no-unused-vars": [hasDev ? 1 : 2, "all"],
     semi: [hasDev ? 1 : 2, "always"],
-    "import/no-cycle": 0,
-    "import/no-unresolved": 0
+    "import/no-cycle": 0
   },
   globals: {
     window: true,
@@ -35,5 +34,12 @@ module.exports = {
     console: true,
     require: true
   },
-  plugins: ["prettier"]
+  plugins: ["prettier"],
+  settings: {
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx"]
+      }
+    }
+  }
 };

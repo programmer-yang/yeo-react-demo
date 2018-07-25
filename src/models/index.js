@@ -1,5 +1,5 @@
-import demoData from '../pages/demo';
+import demoModel from "../pages/demo/demoModel";
 
 export default {
-  demoModel: demoData.demoModel
+  demoModel
 };
