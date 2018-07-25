@@ -65,7 +65,7 @@
   "scripts": {
     "start": "node scripts/start.js -t dev",
     "build": "node scripts/build.js -t prod",
-    "preinstall": "node scripts/init.js",
+    "postinstall": "node scripts/init.js",
     "lint": "eslint --ext .js,.jsx src"
   },
   "babel": {
