@@ -22,6 +22,20 @@ module.exports = {
     semi: [hasDev ? 1 : 2, "always"],
     "import/no-cycle": 0
   },
+  plugins: ["react", "prettier"],
+  settings: {
+    react: {
+      createClass: "createReactClass",
+      pragma: "React",
+      version: "16.3.2"
+    },
+    propWrapperFunctions: ["forbidExtraProps"],
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx"]
+      }
+    }
+  },
   globals: {
     window: true,
     document: true,
@@ -33,13 +47,5 @@ module.exports = {
     process: true,
     console: true,
     require: true
-  },
-  plugins: ["prettier"],
-  settings: {
-    "import/resolver": {
-      node: {
-        extensions: [".js", ".jsx"]
-      }
-    }
   }
 };
