@@ -1,0 +1,53 @@
+{
+  "name": "base-front-end-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "yeo dev",
+    "build": "yeo build",
+    "eslint": "eslint --ext .js --ext .jsx ./src",
+    "lint-staged": "lint-staged"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "antd": "^3.12.3",
+    "classnames": "^2.2.6",
+    "dva": "^2.4.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-router-dom": "^4.3.1",
+    "solomon-fetch-web": "^0.4.8",
+    "solomon-header": "^0.4.25",
+    "solomon-layout": "^0.4.29",
+    "solomon-select-lang": "^0.4.31",
+    "solomon-utils": "^0.4.8",
+    "yeojs": "^0.4.28"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.5.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.4",
+    "lint-staged": "^8.1.0",
+    "pre-commit": "^1.2.2",
+    "solomon-eslint": "^0.4.8"
+  },
+  "prettier": {
+    "trailingComma": true
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "pre-commit": [
+    "lint-staged"
+  ]
+}

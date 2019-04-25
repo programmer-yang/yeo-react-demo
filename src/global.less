@@ -1,0 +1,52 @@
+/**
+ * author: liu.yang 
+ * date: 2018-05-17 11:46:47 
+ * 
+ * 用于存放全局变量
+ * 比如 边框颜色 不同类型的字体颜色 大小
+ */
+
+// 一下为全局样式
+
+html,
+body,
+:global(#root) {
+  height: 100%;
+  margin: 0;
+  font-size: 10px;
+}
+
+:global(.ant-layout) {
+  min-height: 100vh;
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.globalSpin {
+  width: 100%;
+  margin: 40px 0 !important;
+}
+
+// temp fix for https://github.com/ant-design/ant-design/commit/a1fafb5b727b62cb0be29ce6e9eca8f579d4f8b7
+:global {
+  .ant-spin-container {
+    overflow: visible !important;
+  }
+}
