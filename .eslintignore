@@ -1,7 +1,0 @@
-build/*
-config/*
-docs/*
-node_modules/*
-public/*
-scripts/*
-package.json
